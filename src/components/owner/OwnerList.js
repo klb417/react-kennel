@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import OwnerManager from "../../modules/OwnerManager";
+import APIManager from "../../modules/APIManager";
 import OwnerCard from "./OwnerCard";
 
 class OwnerList extends Component {
@@ -8,7 +8,7 @@ class OwnerList extends Component {
   };
 
   componentDidMount() {
-    OwnerManager.getAll().then(owners => {
+    APIManager.getAll("owners").then(owners => {
       this.setState({
         owners: owners
       });

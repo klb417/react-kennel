@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import EmployeeCard from "./EmployeeCard";
-import EmployeeManager from "../../modules/EmployeeManager";
+import APIManager from "../../modules/APIManager";
 
 class EmployeeList extends Component {
   state = {
@@ -8,7 +8,7 @@ class EmployeeList extends Component {
   };
 
   componentDidMount() {
-    EmployeeManager.getAll().then(employees => {
+    APIManager.getAll("employees").then(employees => {
       this.setState({
         employees: employees
       });
@@ -32,7 +32,7 @@ export default EmployeeList;
 
 //   componentDidMount() {
 
-//     AnimalManager.getAll().then(animals => {
+//     APIManager.getAll("employees").then(animals => {
 //       this.setState({
 //         animals: animals
 //       });
