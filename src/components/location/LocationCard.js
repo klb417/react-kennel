@@ -6,10 +6,11 @@ class LocationCard extends Component {
       <div className="card">
         <div className="card-content">
           <h3>
-            Address: <span className="card-address">500 Puppy Way</span>
+            Address:{" "}
+            <span className="card-address">{this.props.location.address}</span>
           </h3>
-          <p>Hours: Mon-Fri: 8:00am - 5:30pm </p>
-          <p>Phone: (555) 555-0987</p>
+          <p>Hours: {this.props.location.hours}</p>
+          <p>Phone: {this.props.location.phone}</p>
         </div>
       </div>
     );

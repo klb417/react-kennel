@@ -1,7 +1,86 @@
 {
   "animals": [
-      { "id": 1, "name": "Doodles", "breed": "Poodle"},
-      { "id": 2, "name": "Decker", "breed": "German Sheperd" },
-      { "id": 3, "name": "Esme", "breed": "Pitbull" }
+    {
+      "id": 1,
+      "name": "Gojira",
+      "breed": "Reptile"
+    },
+    {
+      "id": 2,
+      "name": "Ghidorah",
+      "breed": "Hydra"
+    },
+    {
+      "id": 3,
+      "name": "Mothra",
+      "breed": "Giant Divine Moth"
+    },
+    {
+      "id": 4,
+      "name": "Kong",
+      "breed": "Ape"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Guadalupe Gryffindor",
+      "role": "Dog Sitter"
+    },
+    {
+      "id": 2,
+      "name": "Rowen Ravenclaw",
+      "role": "Dog Sitter"
+    },
+    {
+      "id": 3,
+      "name": "Hector Hufflepuff",
+      "role": "Receptionist"
+    },
+    {
+      "id": 4,
+      "name": "Sally Slytherin",
+      "role": "Dog Sitter"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "address": "123 First St",
+      "hours": "Mon-Fri: 8:00am - 5:30pm",
+      "phone": "(555) 555-0987"
+    },
+    {
+      "id": 2,
+      "address": "890 Second St",
+      "hours": "Tues-Fri: 9:00am - 3:00pm",
+      "phone": "(555) 555-4321"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Spike Spiegel",
+      "address": "456 Mars Blvd",
+      "phone": "(555) 555-5432"
+    },
+    {
+      "id": 2,
+      "name": "Faye Valentine",
+      "address": "321 Mercury Ave",
+      "phone": "(555) 555-9876"
+    },
+    {
+      "id": 3,
+      "name": "Jet Black",
+      "address": "765 Jupiter Dr",
+      "phone": "(555) 555-3456"
+    },
+    {
+      "id": 4,
+      "name": "Edward Wong Hau Pepelu Tivruski IV",
+      "address": "654 Saturn Circle",
+      "phone": "(555) 555-2345"
+    }
   ]
 }
