@@ -10,25 +10,36 @@ class AnimalList extends Component {
   };
 
   componentDidMount() {
-    
     //getAll from APIManager and hang on to that data; put it in state
-    APIManager.getAll("animals").then(animals => {
+    APIManager.getAll("animals/?_expand=owner").then(animals => {
       this.setState({
         animals: animals
       });
     });
   }
 
-  render(){
-    
-  
-    return(
+  deleteAnimal = id => {
+    APIManager.delete(`animals/${id}`).then(() => {
+      APIManager.getAll("animals/?_expand=owner").then(newAnimals => {
+        this.setState({
+          animals: newAnimals
+        });
+      });
+    });
+  };
+
+  render() {
+    return (
       <div className="container-cards">
-        {this.state.animals.map(animal =>
-          <AnimalCard key={animal.id} animal={animal} />
-        )}
+        {this.state.animals.map(animal => (
+          <AnimalCard
+            key={animal.id}
+            animal={animal}
+            deleteAnimal={this.deleteAnimal}
+          />
+        ))}
       </div>
-    )
+    );
   }
 }
 

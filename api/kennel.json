@@ -3,44 +3,78 @@
     {
       "id": 1,
       "name": "Gojira",
-      "breed": "Reptile"
+      "breed": "Reptile",
+      "ownerId": 2,
+      "locationId": 1
     },
     {
       "id": 2,
       "name": "Ghidorah",
-      "breed": "Hydra"
+      "breed": "Hydra",
+      "ownerId": 4,
+      "locationId": 2
     },
     {
       "id": 3,
       "name": "Mothra",
-      "breed": "Giant Divine Moth"
+      "breed": "Giant Divine Moth",
+      "ownerId": 1,
+      "locationId": 2
     },
     {
       "id": 4,
       "name": "Kong",
-      "breed": "Ape"
+      "breed": "Ape",
+      "ownerId": 2,
+      "locationId": 2
+    },
+    {
+      "id": 5,
+      "name": "Rodan",
+      "breed": "Giant Pteranodon",
+      "ownerId": 3,
+      "locationId": 1
+    },
+    {
+      "id": 6,
+      "name": "Ĉ̸͈͎̄̾͘t̸̛͈̺̯̲̅̓̀̃h̵͕̝̃͌̀ǘ̸̻̲̮l̸̡̛̛̈́̊̕h̷͖̚ư̷͉̣͖̟͓̓̀͆̅",
+      "breed": "T̵͍̝̠͊̏̀h̴̊̇̌͜e̵̬͈̟̾̅ ̴̧̼̀͆̑G̴̝̯͈̎̿͊r̸̞͑̔e̷̙̭͈͆̽͊ȁ̵͓̿͒ẗ̴̳́ ̵̞̻̼͠D̸̖͐̈́̒ȑ̶̨̘̏̇ė̶͙̫̮a̴̗͍̓͜m̵̗͇͋̌ĕ̷̹r̸̹̣͂ͅ",
+      "ownerId": 5,
+      "locationId": 3
+    },
+    {
+      "id": 7,
+      "name": "Ḍ̴̌̒à̶͔̯g̵̱̼̀͋͘ô̵̜̇̆n̸̢̺̔",
+      "breed": "D̷͍̬͆̅͐e̵͕̠̥̋̀̽e̴̪̟͜͝p̵̥̂́ ̸̍ͅO̴͙͎͉͂͛͠n̴̪̞̔ë̵̡́͝",
+      "ownerId": 5,
+      "locationId": 3
     }
+
   ],
   "employees": [
     {
       "id": 1,
       "name": "Guadalupe Gryffindor",
-      "role": "Dog Sitter"
+      "role": "Dog Sitter",
+      "locationId": 2
     },
     {
       "id": 2,
       "name": "Rowen Ravenclaw",
-      "role": "Dog Sitter"
+      "role": "Dog Sitter",
+      "locationId": 2
     },
     {
       "id": 3,
       "name": "Hector Hufflepuff",
-      "role": "Receptionist"
+      "role": "Receptionist",
+      "locationId": 1
     },
     {
       "id": 4,
       "name": "Sally Slytherin",
-      "role": "Dog Sitter"
+      "role": "Dog Sitter",
+      "locationId": 1
     }
   ],
   "locations": [
@@ -55,6 +89,12 @@
       "address": "890 Second St",
       "hours": "Tues-Fri: 9:00am - 3:00pm",
       "phone": "(555) 555-4321"
+    },
+    {
+      "id": 3,
+      "address": "Extra Dimensional Containment Facility",
+      "hours": "24/7",
+      "phone": "(555) 555-EVIL"
     }
   ],
   "owners": [
@@ -81,6 +121,12 @@
       "name": "Edward Wong Hau Pepelu Tivruski IV",
       "address": "654 Saturn Circle",
       "phone": "(555) 555-2345"
+    },
+    {
+      "id": 5,
+      "name": "Pat",
+      "address": "Infinity",
+      "phone": "(555) 555-YEET"
     }
   ]
 }

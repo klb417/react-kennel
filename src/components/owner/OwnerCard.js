@@ -10,6 +10,13 @@ class OwnerCard extends Component {
           </h3>
           <p>Address: {this.props.owner.address}</p>
           <p>Phone: {this.props.owner.phone}</p>
+          <ul>
+            pets:
+            {this.props.owner.animals.map(animal => (
+              <li key={animal.id}>{animal.name}</li>
+            ))}
+          </ul>
+          <button onClick={() => this.props.deleteOwner(this.props.owner.id)}>Remove</button>
         </div>
       </div>
     );
