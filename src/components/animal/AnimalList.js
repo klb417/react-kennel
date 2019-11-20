@@ -12,7 +12,7 @@ class AnimalList extends Component {
   componentDidMount() {
     
     //getAll from APIManager and hang on to that data; put it in state
-    APIManager.getAll("animals").then(animals => {
+    APIManager.getAll("animals/?_expand=owner").then(animals => {
       this.setState({
         animals: animals
       });

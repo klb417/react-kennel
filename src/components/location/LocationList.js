@@ -8,7 +8,7 @@ class LocationList extends Component {
   };
 
   componentDidMount() {
-    APIManager.getAll("locations").then(locations => {
+    APIManager.getAll("locations/?_embed=employees&_embed=animals").then(locations => {
       this.setState({
         locations: locations
       });

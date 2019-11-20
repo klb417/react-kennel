@@ -8,7 +8,7 @@ class EmployeeList extends Component {
   };
 
   componentDidMount() {
-    APIManager.getAll("employees").then(employees => {
+    APIManager.getAll("employees/?_expand=location").then(employees => {
       this.setState({
         employees: employees
       });
@@ -23,33 +23,3 @@ class EmployeeList extends Component {
 }
 
 export default EmployeeList;
-
-// class AnimalList extends Component {
-//   //define what this component needs to render
-//   state = {
-//     animals: []
-//   };
-
-//   componentDidMount() {
-
-//     APIManager.getAll("employees").then(animals => {
-//       this.setState({
-//         animals: animals
-//       });
-//     });
-//   }
-
-//   render(){
-//     
-
-//     return(
-//       <div className="container-cards">
-//         {this.state.animals.map(animal =>
-//           <AnimalCard key={animal.id} animal={animal} />
-//         )}
-//       </div>
-//     )
-//   }
-// }
-
-// export default AnimalList;

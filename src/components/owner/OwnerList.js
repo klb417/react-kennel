@@ -8,7 +8,7 @@ class OwnerList extends Component {
   };
 
   componentDidMount() {
-    APIManager.getAll("owners").then(owners => {
+    APIManager.getAll("owners/?_embed=animals").then(owners => {
       this.setState({
         owners: owners
       });

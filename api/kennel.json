@@ -3,44 +3,64 @@
     {
       "id": 1,
       "name": "Gojira",
-      "breed": "Reptile"
+      "breed": "Reptile",
+      "ownerId": 2,
+      "locationId": 1
     },
     {
       "id": 2,
       "name": "Ghidorah",
-      "breed": "Hydra"
+      "breed": "Hydra",
+      "ownerId": 4,
+      "locationId": 2
     },
     {
       "id": 3,
       "name": "Mothra",
-      "breed": "Giant Divine Moth"
+      "breed": "Giant Divine Moth",
+      "ownerId": 1,
+      "locationId": 2
     },
     {
       "id": 4,
       "name": "Kong",
-      "breed": "Ape"
+      "breed": "Ape",
+      "ownerId": 2,
+      "locationId": 2
+    },
+    {
+      "id": 5,
+      "name": "Rodan",
+      "breed": "Giant Pteranodon",
+      "ownerId": 3,
+      "locationId": 1
     }
+
   ],
   "employees": [
     {
       "id": 1,
       "name": "Guadalupe Gryffindor",
-      "role": "Dog Sitter"
+      "role": "Dog Sitter",
+      "locationId": 2
     },
     {
       "id": 2,
       "name": "Rowen Ravenclaw",
-      "role": "Dog Sitter"
+      "role": "Dog Sitter",
+      "locationId": 2
     },
     {
       "id": 3,
       "name": "Hector Hufflepuff",
-      "role": "Receptionist"
+      "role": "Receptionist",
+      "locationId": 1
     },
     {
       "id": 4,
       "name": "Sally Slytherin",
-      "role": "Dog Sitter"
+      "role": "Dog Sitter",
+      "locationId": 1
     }
   ],
   "locations": [

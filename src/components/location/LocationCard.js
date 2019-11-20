@@ -11,6 +11,18 @@ class LocationCard extends Component {
           </h3>
           <p>Hours: {this.props.location.hours}</p>
           <p>Phone: {this.props.location.phone}</p>
+          <ul>
+            Employees:
+            {this.props.location.employees.map(employee => (
+              <li key={employee.id}>{employee.name}</li>
+            ))}
+          </ul>
+          <ul>
+            Animals:
+            {this.props.location.animals.map(animal => (
+              <li key={animal.id}>{animal.name}</li>
+            ))}
+          </ul>
         </div>
       </div>
     );

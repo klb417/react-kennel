@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 class EmployeeCard extends Component {
   render() {
+    
+
     return (
       <div className="card">
         <div className="card-content">
@@ -9,6 +11,7 @@ class EmployeeCard extends Component {
             Name: <span className="card-employee">{this.props.employee.name}</span>
           </h3>
           <p>Role: {this.props.employee.role}</p>
+          <p>Location: {this.props.employee.location.address}</p>
         </div>
       </div>
     );
