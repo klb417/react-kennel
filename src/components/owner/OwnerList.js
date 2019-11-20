@@ -14,11 +14,27 @@ class OwnerList extends Component {
       });
     });
   }
-
+  deleteOwner = id => {
+    APIManager.delete(`owners/${id}`).then(() => {
+      APIManager.getAll("owners/?_embed=animals").then(owners => {
+        this.setState({
+          owners: owners
+        });
+      });
+    });
+  };
   render() {
-    return this.state.owners.map(owner => (
-      <OwnerCard key={owner.id} owner={owner} />
-    ));
+    return (
+      <div className="container-cards">
+        {this.state.owners.map(owner => (
+          <OwnerCard
+            key={owner.id}
+            owner={owner}
+            deleteOwner={this.deleteOwner}
+          />
+        ))}
+      </div>
+    );
   }
 }
 

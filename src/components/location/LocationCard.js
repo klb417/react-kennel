@@ -6,7 +6,6 @@ class LocationCard extends Component {
       <div className="card">
         <div className="card-content">
           <h3>
-            Address:{" "}
             <span className="card-address">{this.props.location.address}</span>
           </h3>
           <p>Hours: {this.props.location.hours}</p>
@@ -23,6 +22,7 @@ class LocationCard extends Component {
               <li key={animal.id}>{animal.name}</li>
             ))}
           </ul>
+          <button onClick={() => this.props.deleteLocation(this.props.location.id)}>Close</button>
         </div>
       </div>
     );

@@ -16,6 +16,7 @@ class OwnerCard extends Component {
               <li key={animal.id}>{animal.name}</li>
             ))}
           </ul>
+          <button onClick={() => this.props.deleteOwner(this.props.owner.id)}>Remove</button>
         </div>
       </div>
     );

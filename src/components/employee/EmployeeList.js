@@ -14,11 +14,27 @@ class EmployeeList extends Component {
       });
     });
   }
-
+  deleteEmployee = id => {
+    APIManager.delete(`employees/${id}`).then(() =>
+      APIManager.getAll("employees/?_expand=location").then(newEmployees => {
+        this.setState({
+          employees: newEmployees
+        });
+      })
+    );
+  };
   render() {
-    return <>
-      {this.state.employees.map(employee => <EmployeeCard key={employee.id} employee={employee}/>)}
-    </>
+    return (
+      <div className="container-cards">
+        {this.state.employees.map(employee => (
+          <EmployeeCard
+            key={employee.id}
+            employee={employee}
+            deleteEmployee={this.deleteEmployee}
+          />
+        ))}
+      </div>
+    );
   }
 }
 
