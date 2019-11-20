@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 class LocationCard extends Component {
   render() {
     return (
@@ -10,19 +10,15 @@ class LocationCard extends Component {
           </h3>
           <p>Hours: {this.props.location.hours}</p>
           <p>Phone: {this.props.location.phone}</p>
-          <ul>
-            Employees:
-            {this.props.location.employees.map(employee => (
-              <li key={employee.id}>{employee.name}</li>
-            ))}
-          </ul>
-          <ul>
-            Animals:
-            {this.props.location.animals.map(animal => (
-              <li key={animal.id}>{animal.name}</li>
-            ))}
-          </ul>
-          <button onClick={() => this.props.deleteLocation(this.props.location.id)}>Close</button>
+          <button
+            type="button"
+            onClick={() => this.props.deleteLocation(this.props.location.id)}
+          >
+            Close
+          </button>
+          <Link to={`/locations/${this.props.location.id}`}>
+            <button>Details</button>
+          </Link>
         </div>
       </div>
     );
