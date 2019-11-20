@@ -5,49 +5,56 @@
       "name": "Gojira",
       "breed": "Reptile",
       "ownerId": 2,
-      "locationId": 1
+      "locationId": 1,
+      "icon": "gojira.png"
     },
     {
       "id": 2,
       "name": "Ghidorah",
       "breed": "Hydra",
       "ownerId": 4,
-      "locationId": 2
+      "locationId": 2,
+      "icon": "ghidorah.png"
     },
     {
       "id": 3,
       "name": "Mothra",
       "breed": "Giant Divine Moth",
       "ownerId": 1,
-      "locationId": 2
+      "locationId": 2,
+      "icon": "mothra.png"
     },
     {
       "id": 4,
       "name": "Kong",
       "breed": "Ape",
       "ownerId": 2,
-      "locationId": 2
+      "locationId": 2,
+      "icon": "kong.jpeg"
     },
     {
       "id": 5,
       "name": "Rodan",
       "breed": "Giant Pteranodon",
       "ownerId": 3,
-      "locationId": 1
+      "locationId": 1,
+      "icon": "rodan.png"
     },
     {
       "id": 6,
       "name": "Ĉ̸͈͎̄̾͘t̸̛͈̺̯̲̅̓̀̃h̵͕̝̃͌̀ǘ̸̻̲̮l̸̡̛̛̈́̊̕h̷͖̚ư̷͉̣͖̟͓̓̀͆̅",
       "breed": "T̵͍̝̠͊̏̀h̴̊̇̌͜e̵̬͈̟̾̅ ̴̧̼̀͆̑G̴̝̯͈̎̿͊r̸̞͑̔e̷̙̭͈͆̽͊ȁ̵͓̿͒ẗ̴̳́ ̵̞̻̼͠D̸̖͐̈́̒ȑ̶̨̘̏̇ė̶͙̫̮a̴̗͍̓͜m̵̗͇͋̌ĕ̷̹r̸̹̣͂ͅ",
       "ownerId": 5,
-      "locationId": 3
+      "locationId": 3,
+      "icon": "cthulhu.jpeg"
     },
     {
       "id": 7,
       "name": "Ḍ̴̌̒à̶͔̯g̵̱̼̀͋͘ô̵̜̇̆n̸̢̺̔",
       "breed": "D̷͍̬͆̅͐e̵͕̠̥̋̀̽e̴̪̟͜͝p̵̥̂́ ̸̍ͅO̴͙͎͉͂͛͠n̴̪̞̔ë̵̡́͝",
       "ownerId": 5,
-      "locationId": 3
+      "locationId": 3,
+      "icon": "dagon.jpeg"
     }
 
   ],
