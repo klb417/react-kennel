@@ -6,7 +6,7 @@
       "breed": "Reptile",
       "ownerId": 2,
       "locationId": 1,
-      "icon": "gojira.png"
+      "employeeId": 4
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "breed": "Hydra",
       "ownerId": 4,
       "locationId": 2,
-      "icon": "ghidorah.png"
+      "employeeId": 2
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "breed": "Giant Divine Moth",
       "ownerId": 1,
       "locationId": 2,
-      "icon": "mothra.png"
+      "employeeId": 4
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "breed": "Ape",
       "ownerId": 2,
       "locationId": 2,
-      "icon": "kong.jpeg"
+      "employeeId": 1
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "breed": "Giant Pteranodon",
       "ownerId": 3,
       "locationId": 1,
-      "icon": "rodan.png"
+      "employeeId": 2
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "breed": "T̵͍̝̠͊̏̀h̴̊̇̌͜e̵̬͈̟̾̅ ̴̧̼̀͆̑G̴̝̯͈̎̿͊r̸̞͑̔e̷̙̭͈͆̽͊ȁ̵͓̿͒ẗ̴̳́ ̵̞̻̼͠D̸̖͐̈́̒ȑ̶̨̘̏̇ė̶͙̫̮a̴̗͍̓͜m̵̗͇͋̌ĕ̷̹r̸̹̣͂ͅ",
       "ownerId": 5,
       "locationId": 3,
-      "icon": "cthulhu.jpeg"
+      "employeeId": 1
     },
     {
       "id": 7,
@@ -54,7 +54,15 @@
       "breed": "D̷͍̬͆̅͐e̵͕̠̥̋̀̽e̴̪̟͜͝p̵̥̂́ ̸̍ͅO̴͙͎͉͂͛͠n̴̪̞̔ë̵̡́͝",
       "ownerId": 5,
       "locationId": 3,
-      "icon": "dagon.jpeg"
+      "employeeId": 1
+    },
+    {
+      "id": 8,
+      "name": "Garfield",
+      "breed": "Cat?",
+      "ownerId": 6,
+      "locationId": 3,
+      "employeeId": 3
     }
 
   ],
@@ -131,9 +139,15 @@
     },
     {
       "id": 5,
-      "name": "Pat",
-      "address": "Infinity",
-      "phone": "(555) 555-YEET"
+      "name": "null",
+      "address": "∞",
+      "phone": "¯\\_(ツ)_/¯"
+    },
+    {
+      "id": 6,
+      "name": "Jon Arbuckle",
+      "address": "711 Maple Street",
+      "phone": "(555) 555-ODIE"
     }
   ]
 }
