@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./OwnerCard.css";
 
 class OwnerCard extends Component {
   render() {
@@ -6,17 +8,16 @@ class OwnerCard extends Component {
       <div className="card">
         <div className="card-content">
           <h3>
-            Owner: <span className="card-owner">{this.props.owner.name}</span>
+            <span className="card-owner">{this.props.owner.name}</span>
           </h3>
           <p>Address: {this.props.owner.address}</p>
           <p>Phone: {this.props.owner.phone}</p>
-          <ul>
-            pets:
-            {this.props.owner.animals.map(animal => (
-              <li key={animal.id}>{animal.name}</li>
-            ))}
-          </ul>
-          <button onClick={() => this.props.deleteOwner(this.props.owner.id)}>Remove</button>
+          <button onClick={() => this.props.deleteOwner(this.props.owner.id)}>
+            Remove
+          </button>
+          <Link to={`/owners/${this.props.owner.id}`}>
+            <button type="button">Details</button>
+          </Link>
         </div>
       </div>
     );
