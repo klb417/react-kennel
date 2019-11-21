@@ -9,17 +9,19 @@ class AnimalDetail extends Component {
     name: "",
     breed: "",
     owner: "",
-    location: ""
+    location: "",
+    employee: ""
   };
 
   componentDidMount() {
     //get(id) from APIManager and hang on to the data; put it into state
-    APIManager.get(`animals/${this.props.animalId}?_expand=owner&_expand=location`).then(animal => {
+    APIManager.get(`animals/${this.props.animalId}?_expand=owner&_expand=location&_expand=employee`).then(animal => {
       this.setState({
         name: animal.name,
         breed: animal.breed,
         owner: animal.owner.name,
-        location: animal.location.address
+        location: animal.location.address,
+        employee: animal.employee.name
       });
     });
   }
@@ -46,6 +48,7 @@ class AnimalDetail extends Component {
           <p>Breed: {this.state.breed}</p>
           <p>Owner: {this.state.owner}</p>
           <p>Location: {this.state.location}</p>
+          <p>Responsibility: {this.state.employee}</p>
         </div>
       </div>
     );
