@@ -39,8 +39,8 @@ address {
 img {
   display: block;
   border: 0;
-  width: 100px;
-  height: auto;
+  width: auto;
+  height: 100px;
 }
 
 .section-content {

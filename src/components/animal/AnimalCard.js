@@ -4,26 +4,20 @@ import { Link } from "react-router-dom";
 
 class AnimalCard extends Component {
   render() {
-
     let imgSource;
     try {
-      imgSource = require(`../../assets/${this.props.animal.name
-        .toLowerCase()
-        .replace(/[\u{0080}-\u{FFFF}]/gu, "")}.png`);
+      imgSource = require(`../../assets/${this.props.animal.icon}`);
     } catch (e) {
-      imgSource = require("./dog.svg")
+      imgSource = require("./dog.svg");
     }
     return (
       <div className="card">
         <div className="card-content">
           <picture>
-            <img
-              src={imgSource}
-              alt="My Monster"
-            />
+            <img src={imgSource} alt="My Monster" />
           </picture>
           <h2>
-            Name: <span className="card-petname">{this.props.animal.name}</span>
+            <span className="card-petname">{this.props.animal.name}</span>
           </h2>
           <p>Species: {this.props.animal.breed}</p>
           {/* <p>Owner: {this.props.animal.owner.name}</p> */}
