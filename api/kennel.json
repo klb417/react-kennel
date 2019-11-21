@@ -70,13 +70,13 @@
     {
       "id": 1,
       "name": "Guadalupe Gryffindor",
-      "role": "Dog Sitter",
+      "role": "Sitter",
       "locationId": 2
     },
     {
       "id": 2,
       "name": "Rowen Ravenclaw",
-      "role": "Dog Sitter",
+      "role": "Sitter",
       "locationId": 2
     },
     {
@@ -88,7 +88,7 @@
     {
       "id": 4,
       "name": "Sally Slytherin",
-      "role": "Dog Sitter",
+      "role": "Sitter",
       "locationId": 1
     }
   ],
@@ -148,6 +148,48 @@
       "name": "Jon Arbuckle",
       "address": "711 Maple Street",
       "phone": "(555) 555-ODIE"
+    }
+  ],
+  "ownerships": [
+    {
+      "id": 1,
+      "animalId": 1,
+      "ownerId": 2
+    },
+    {
+      "id": 2,
+      "animalId": 2,
+      "ownerId": 4
+    },
+    {
+      "id": 3,
+      "animalId": 3,
+      "ownerId": 1
+    },
+    {
+      "id": 4,
+      "animalId": 4,
+      "ownerId": 2
+    },
+    {
+      "id": 5,
+      "animalId": 5,
+      "ownerId": 3
+    },
+    {
+      "id": 6,
+      "animalId": 6,
+      "ownerId": 5
+    },
+    {
+      "id": 7,
+      "animalId": 7,
+      "ownerId": 5
+    },
+    {
+      "id": 8,
+      "animalId": 8,
+      "ownerId": 6
     }
   ]
 }
