@@ -6,9 +6,7 @@ class AnimalCard extends Component {
   render() {
     let imgSource;
     try {
-      imgSource = require(`../../assets/${this.props.animal.name
-        .toLowerCase()
-        .replace(/[\u{0080}-\u{FFFF}]/gu, "")}.png`);
+      imgSource = require(`../../assets/${this.props.animal.icon}`);
     } catch (e) {
       imgSource = require("./dog.svg");
     }

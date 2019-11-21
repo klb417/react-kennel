@@ -9,8 +9,16 @@ export default {
   },
   delete(route) {
     return fetch(`${remoteURL}/${route}`, {
-        method: "DELETE"
-    })
-    .then(result => result.json())
+      method: "DELETE"
+    }).then(result => result.json());
+  },
+  post(route, newAnimal) {
+    return fetch(`${remoteURL}/${route}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newAnimal)
+    }).then(data => data.json());
   }
 };

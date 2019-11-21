@@ -12,6 +12,7 @@ class AnimalDetail extends Component {
     owner: "",
     location: "",
     employee: "",
+    icon: "",
     loadingStatus: true
   };
 
@@ -20,12 +21,14 @@ class AnimalDetail extends Component {
     APIManager.get(
       `animals/${this.props.animalId}?_expand=owner&_expand=location&_expand=employee`
     ).then(animal => {
+      console.log(animal)
       this.setState({
         name: animal.name,
         breed: animal.breed,
         owner: animal.owner.name,
         location: animal.location,
         employee: animal.employee,
+        icon: animal.icon,
         loadingStatus: false
       });
     });
@@ -40,9 +43,7 @@ class AnimalDetail extends Component {
   render() {
     let imgSource;
     try {
-      imgSource = require(`../../assets/${this.state.name
-        .toLowerCase()
-        .replace(/[\u{0080}-\u{FFFF}]/gu, "")}.png`);
+      imgSource = require(`../../assets/${this.state.icon}`);
     } catch (e) {
       imgSource = require("./dog.svg");
     }
@@ -57,8 +58,20 @@ class AnimalDetail extends Component {
           </h3>
           <p>Breed: {this.state.breed}</p>
           <p>Owner: {this.state.owner}</p>
-          <p>Location: {this.state.location.address}</p>
-          <Link to={`/employees/${this.state.employee.id}`}>
+          <Link
+            style={{ textDecoration: "none" }}
+            to={`/locations/${this.state.location.id}`}
+          >
+            {this.state.location.address ? (
+              <p>Location: {this.state.location.address}</p>
+            ) : (
+              <></>
+            )}
+          </Link>
+          <Link
+            style={{ textDecoration: "none" }}
+            to={`/employees/${this.state.employee.id}`}
+          >
             <p>Responsibility: {this.state.employee.name}</p>
           </Link>
           <button
