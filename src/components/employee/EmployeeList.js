@@ -21,7 +21,8 @@ class EmployeeList extends Component {
     APIManager.delete(`employees/${id}`).then(() =>
       APIManager.getAll("employees/?_expand=location").then(newEmployees => {
         this.setState({
-          employees: newEmployees
+          employees: newEmployees,
+          loadingStatus: false
         });
       })
     );
