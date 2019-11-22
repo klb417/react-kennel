@@ -78,9 +78,20 @@ class AnimalDetail extends Component {
             onClick={this.handleDelete}>
             Discharge
           </button>
-          <Link to="/animals">
-            <button type="button">Back</button>
-          </Link>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.push(`/animals/${this.props.animalId}/edit`);
+            }}>
+            Edit
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.push(`/animals`);
+            }}>
+            Back
+          </button>
         </div>
       </div>
     );

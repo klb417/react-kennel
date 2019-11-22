@@ -40,8 +40,9 @@ class LocationList extends Component {
           this.state.locations.map(location => (
             <LocationCard
               key={location.id}
-              location={location}
+              kennelLocation={location}
               deleteLocation={this.deleteLocation}
+              {...this.props}
             />
           ))
         )}

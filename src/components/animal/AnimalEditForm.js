@@ -99,15 +99,10 @@ class AnimalEditForm extends Component {
               required
               onChange={this.handleFieldChange}
               id="ownerId"
-              placeholder="Owner">
-              <option default hidden value="">
-                Select Owner
-              </option>
+              placeholder="Owner"
+              value={this.state.ownerId}>
               {this.state.owners.map(owner => (
-                <option
-                  key={owner.id}
-                  value={owner.id}
-                  selected={owner.id === this.state.ownerId}>
+                <option key={owner.id} value={owner.id}>
                   {owner.name}
                 </option>
               ))}
@@ -117,15 +112,10 @@ class AnimalEditForm extends Component {
               required
               onChange={this.handleFieldChange}
               id="locationId"
-              placeholder="Location">
-              <option default hidden value="">
-                Select Location
-              </option>
+              placeholder="Location"
+              value={this.state.locationId}>
               {this.state.locations.map(location => (
-                <option
-                  key={location.id}
-                  value={location.id}
-                  selected={location.id === this.state.locationId}>
+                <option key={location.id} value={location.id}>
                   {location.address}
                 </option>
               ))}
@@ -135,15 +125,10 @@ class AnimalEditForm extends Component {
               required
               onChange={this.handleFieldChange}
               id="employeeId"
-              placeholder="Employee">
-              <option default hidden value="">
-                Select Employee
-              </option>
+              placeholder="Employee"
+              value={this.state.employeeId}>
               {this.state.employees.map(employee => (
-                <option
-                  key={employee.id}
-                  value={employee.id}
-                  selected={employee.id === this.state.employeeId}>
+                <option key={employee.id} value={employee.id}>
                   {employee.name}
                 </option>
               ))}

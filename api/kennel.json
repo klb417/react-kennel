@@ -75,8 +75,8 @@
     {
       "name": "Tic Tac",
       "breed": "Fire Dragon",
-      "ownerId": "4",
-      "locationId": "3",
+      "ownerId": "3",
+      "locationId": "2",
       "employeeId": "4",
       "icon": "tictac.png",
       "id": 9

@@ -81,7 +81,7 @@ class ApplicationViews extends Component {
           path="/locations"
           render={props => {
             if (this.isAuthenticated()) {
-              return <LocationList />;
+              return <LocationList {...props} />;
             } else {
               return <Redirect to="/login" />;
             }
@@ -129,7 +129,7 @@ class ApplicationViews extends Component {
           path="/owners"
           render={props => {
             if (this.isAuthenticated()) {
-              return <OwnerList />;
+              return <OwnerList {...props} />;
             } else {
               return <Redirect to="/login" />;
             }
