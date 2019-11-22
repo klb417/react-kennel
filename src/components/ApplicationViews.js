@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, withRouter, Redirect } from "react-router-dom";
 import React, { Component } from "react";
 import Home from "./home/Home";
 
@@ -11,65 +11,98 @@ import LocationDetail from "./location/LocationDetail";
 import EmployeeDetail from "./employee/EmployeeDetail";
 import OwnerDetail from "./owner/OwnerDetail";
 import AnimalForm from "./animal/AnimalForm";
-
+import Login from "./auth/Login";
 class ApplicationViews extends Component {
+  // Check if credentials are in local storage
+  //returns true/false
+  isAuthenticated = () => localStorage.getItem("credentials") !== null;
+
   render() {
     return (
       <>
+        <Route path="/login" component={Login} />
         <Route
           exact
           path="/"
           render={props => {
-            return <Home />;
+            if (this.isAuthenticated()) {
+              return <Home />;
+            } else {
+              return <Redirect to="/login" />;
+            }
           }}
         />
         <Route
           exact
           path="/animals"
           render={props => {
-            return <AnimalList {...props} />;
+            if (this.isAuthenticated()) {
+              return <AnimalList {...props} />;
+            } else {
+              return <Redirect to="/login" />;
+            }
           }}
         />
         <Route
           path="/animals/:animalId(\d+)"
           render={props => {
-            return (
-              <AnimalDetail
-                animalId={parseInt(props.match.params.animalId)}
-                {...props}
-              />
-            );
+            if (this.isAuthenticated()) {
+              return (
+                <AnimalDetail
+                  animalId={parseInt(props.match.params.animalId)}
+                  {...props}
+                />
+              );
+            } else {
+              return <Redirect to="/login" />;
+            }
           }}
         />
         <Route
           path="/animals/new"
           render={props => {
-            return <AnimalForm {...props} />;
+            if (this.isAuthenticated()) {
+              return <AnimalForm {...props} />;
+            } else {
+              return <Redirect to="/login" />;
+            }
           }}
         />
         <Route
           exact
           path="/locations"
           render={props => {
-            return <LocationList />;
+            if (this.isAuthenticated()) {
+              return <LocationList />;
+            } else {
+              return <Redirect to="/login" />;
+            }
           }}
         />
         <Route
           path="/locations/:locationId(\d+)"
           render={props => {
-            return (
-              <LocationDetail
-                locationId={parseInt(props.match.params.locationId)}
-                {...props}
-              />
-            );
+            if (this.isAuthenticated()) {
+              return (
+                <LocationDetail
+                  locationId={parseInt(props.match.params.locationId)}
+                  {...props}
+                />
+              );
+            } else {
+              return <Redirect to="/login" />;
+            }
           }}
         />
         <Route
           exact
           path="/employees"
           render={props => {
-            return <EmployeeList />;
+            if (this.isAuthenticated()) {
+              return <EmployeeList />;
+            } else {
+              return <Redirect to="/login" />;
+            }
           }}
         />
         <Route
@@ -87,7 +120,11 @@ class ApplicationViews extends Component {
           exact
           path="/owners"
           render={props => {
-            return <OwnerList />;
+            if (this.isAuthenticated()) {
+              return <OwnerList />;
+            } else {
+              return <Redirect to="/login" />;
+            }
           }}
         />
         <Route
