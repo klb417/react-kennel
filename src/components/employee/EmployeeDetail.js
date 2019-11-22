@@ -53,8 +53,7 @@ class EmployeeDetail extends Component {
           <button
             type="button"
             disabled={this.state.loadingStatus}
-            onClick={this.handleDelete}
-          >
+            onClick={this.handleDelete}>
             Fire
           </button>
           <Link to="/employees">

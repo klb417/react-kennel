@@ -21,7 +21,7 @@ class AnimalDetail extends Component {
     APIManager.get(
       `animals/${this.props.animalId}?_expand=owner&_expand=location&_expand=employee`
     ).then(animal => {
-      console.log(animal)
+      console.log(animal);
       this.setState({
         name: animal.name,
         breed: animal.breed,
@@ -60,8 +60,7 @@ class AnimalDetail extends Component {
           <p>Owner: {this.state.owner}</p>
           <Link
             style={{ textDecoration: "none" }}
-            to={`/locations/${this.state.location.id}`}
-          >
+            to={`/locations/${this.state.location.id}`}>
             {this.state.location.address ? (
               <p>Location: {this.state.location.address}</p>
             ) : (
@@ -70,15 +69,13 @@ class AnimalDetail extends Component {
           </Link>
           <Link
             style={{ textDecoration: "none" }}
-            to={`/employees/${this.state.employee.id}`}
-          >
+            to={`/employees/${this.state.employee.id}`}>
             <p>Responsibility: {this.state.employee.name}</p>
           </Link>
           <button
             type="button"
             disabled={this.state.loadingStatus}
-            onClick={this.handleDelete}
-          >
+            onClick={this.handleDelete}>
             Discharge
           </button>
           <Link to="/animals">

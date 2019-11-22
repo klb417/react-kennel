@@ -12,8 +12,7 @@ class EmployeeCard extends Component {
           <p>Role: {this.props.employee.role}</p>
           <p>Location: {this.props.employee.location.address}</p>
           <button
-            onClick={() => this.props.deleteEmployee(this.props.employee.id)}
-          >
+            onClick={() => this.props.deleteEmployee(this.props.employee.id)}>
             Fire
           </button>
           <Link to={`employees/${this.props.employee.id}`}>

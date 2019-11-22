@@ -9,7 +9,7 @@ class NavBar extends Component {
         <h1 className="site-title">
           Kaiju Kennels
           <br />
-          <small>Loving care when you're not there.</small>
+          <small>This was a really bad idea.</small>
         </h1>
         <nav>
           <ul className="container">

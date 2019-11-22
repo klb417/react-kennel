@@ -57,8 +57,7 @@ class LocationDetail extends Component {
           <button
             type="button"
             disabled={this.state.loadingStatus}
-            onClick={this.handleDelete}
-          >
+            onClick={this.handleDelete}>
             Close
           </button>
           <Link to="/locations">

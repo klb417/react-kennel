@@ -2,7 +2,7 @@
   "animals": [
     {
       "id": 1,
-      "name": "Gojira",
+      "name": "Godzilla",
       "breed": "Reptile",
       "ownerId": 2,
       "locationId": 1,
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "name": "Ghidorah",
+      "name": "King Ghidorah",
       "breed": "Hydra",
       "ownerId": 4,
       "locationId": 2,
@@ -29,7 +29,7 @@
     },
     {
       "id": 4,
-      "name": "Kong",
+      "name": "King Kong",
       "breed": "Ape",
       "ownerId": 2,
       "locationId": 2,
@@ -66,7 +66,7 @@
     {
       "id": 8,
       "name": "Garfield",
-      "breed": "Cat?",
+      "breed": "Cat...?",
       "ownerId": 6,
       "locationId": 3,
       "employeeId": 3,

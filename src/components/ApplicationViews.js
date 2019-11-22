@@ -12,6 +12,7 @@ import EmployeeDetail from "./employee/EmployeeDetail";
 import OwnerDetail from "./owner/OwnerDetail";
 import AnimalForm from "./animal/AnimalForm";
 import Login from "./auth/Login";
+import AnimalEditForm from "./animal/AnimalEditForm";
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
   //returns true/false
@@ -25,11 +26,11 @@ class ApplicationViews extends Component {
           exact
           path="/"
           render={props => {
-            if (this.isAuthenticated()) {
-              return <Home />;
-            } else {
-              return <Redirect to="/login" />;
-            }
+            // if (this.isAuthenticated()) {
+            return <Home />;
+            // } else {
+            //   return <Redirect to="/login" />;
+            // }
           }}
         />
         <Route
@@ -44,6 +45,7 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
+          exact
           path="/animals/:animalId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
@@ -56,6 +58,12 @@ class ApplicationViews extends Component {
             } else {
               return <Redirect to="/login" />;
             }
+          }}
+        />
+        <Route
+          path="/animals/:animalId(\d+)/edit"
+          render={props => {
+            return <AnimalEditForm {...props} />;
           }}
         />
         <Route
