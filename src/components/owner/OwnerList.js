@@ -4,36 +4,46 @@ import OwnerCard from "./OwnerCard";
 
 class OwnerList extends Component {
   state = {
-    owners: []
+    owners: [],
+    loadingStatus: true
   };
 
   componentDidMount() {
     APIManager.getAll("owners/?_embed=animals").then(owners => {
       this.setState({
-        owners: owners
+        owners: owners,
+        loadingStatus: false
       });
     });
   }
   deleteOwner = id => {
+    this.setState({ loadingStatus: true });
     APIManager.delete(`owners/${id}`).then(() => {
       APIManager.getAll("owners/?_embed=animals").then(owners => {
         this.setState({
-          owners: owners
+          owners: owners,
+          loadingStatus: false
         });
       });
     });
   };
   render() {
     return (
-      <div className="container-cards">
-        {this.state.owners.map(owner => (
-          <OwnerCard
-            key={owner.id}
-            owner={owner}
-            deleteOwner={this.deleteOwner}
-          />
-        ))}
-      </div>
+      <>
+        {this.state.loadingStatus ? (
+          <p>App is loading</p>
+        ) : (
+          <div className="container-cards">
+            {this.state.owners.map(owner => (
+              <OwnerCard
+                key={owner.id}
+                owner={owner}
+                deleteOwner={this.deleteOwner}
+              />
+            ))}
+          </div>
+        )}
+      </>
     );
   }
 }

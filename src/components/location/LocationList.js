@@ -4,37 +4,49 @@ import LocationCard from "./LocationCard";
 
 class LocationList extends Component {
   state = {
-    locations: []
+    locations: [],
+    loadingStatus: true
   };
 
   componentDidMount() {
     APIManager.getAll("locations/?_embed=employees&_embed=animals").then(
       locations => {
         this.setState({
-          locations: locations
+          locations: locations,
+          loadingStatus: false
         });
       }
     );
   }
   deleteLocation = id => {
+    this.setState({ loadingStatus: true });
     APIManager.delete(`locations/${id}`).then(() => {
       APIManager.getAll("locations/?_embed=employees&_embed=animals").then(
         locations => {
           this.setState({
-            locations: locations
+            locations: locations,
+            loadingStatus: false
           });
         }
       );
     });
   };
   render() {
-    return this.state.locations.map(location => (
-      <LocationCard
-        key={location.id}
-        location={location}
-        deleteLocation={this.deleteLocation}
-      />
-    ));
+    return (
+      <>
+        {this.state.loadingStatus ? (
+          <p>App is loading</p>
+        ) : (
+          this.state.locations.map(location => (
+            <LocationCard
+              key={location.id}
+              location={location}
+              deleteLocation={this.deleteLocation}
+            />
+          ))
+        )}
+      </>
+    );
   }
 }
 
