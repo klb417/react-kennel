@@ -10,6 +10,7 @@ class AnimalEditForm extends Component {
     ownerId: "",
     locationId: "",
     employeeId: "",
+    icon: "",
     owners: [],
     locations: [],
     employees: [],
@@ -26,16 +27,17 @@ class AnimalEditForm extends Component {
     evt.preventDefault();
     this.setState({ loadingStatus: true });
     const editedAnimal = {
-      id: this.props.match.params.animalId,
+      id: Number(this.props.match.params.animalId),
       name: this.state.name,
       breed: this.state.breed,
-      ownerId: this.state.ownerId,
-      locationId: this.state.locationId,
-      employeeId: this.state.employeeId
+      ownerId: Number(this.state.ownerId),
+      locationId: Number(this.state.locationId),
+      employeeId: Number(this.state.employeeId),
+      icon: this.state.icon
     };
 
-    APIManager.update("animals/", editedAnimal).then(() =>
-      this.props.history.push("/animals")
+    APIManager.update("animals", editedAnimal).then(() =>
+      this.props.history.goBack()
     );
   };
 
@@ -52,15 +54,10 @@ class AnimalEditForm extends Component {
           .then(() => {
             APIManager.get(`animals/${this.props.match.params.animalId}`).then(
               animal => {
+                console.log(animal);
                 this.setState({
-                  name: animal.name,
-                  breed: animal.breed,
-                  ownerId: animal.ownerId,
-                  locationId: animal.locationId,
-                  employeeId: animal.employeeId,
-                  owners: stateData.owners,
-                  locations: stateData.locations,
-                  employees: stateData.employees,
+                  ...animal,
+                  ...stateData,
                   loadingStatus: false
                 });
               }

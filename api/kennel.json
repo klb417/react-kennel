@@ -51,7 +51,7 @@
       "breed": "T̵͍̝̠͊̏̀h̴̊̇̌͜e̵̬͈̟̾̅ ̴̧̼̀͆̑G̴̝̯͈̎̿͊r̸̞͑̔e̷̙̭͈͆̽͊ȁ̵͓̿͒ẗ̴̳́ ̵̞̻̼͠D̸̖͐̈́̒ȑ̶̨̘̏̇ė̶͙̫̮a̴̗͍̓͜m̵̗͇͋̌ĕ̷̹r̸̹̣͂ͅ",
       "ownerId": 5,
       "locationId": 3,
-      "employeeId": 1,
+      "employeeId": 5,
       "icon": "cthulhu.png"
     },
     {
@@ -60,7 +60,7 @@
       "breed": "D̷͍̬͆̅͐e̵͕̠̥̋̀̽e̴̪̟͜͝p̵̥̂́ ̸̍ͅO̴͙͎͉͂͛͠n̴̪̞̔ë̵̡́͝",
       "ownerId": 5,
       "locationId": 3,
-      "employeeId": 1,
+      "employeeId": 5,
       "icon": "dagon.png"
     },
     {
@@ -75,9 +75,9 @@
     {
       "name": "Tic Tac",
       "breed": "Fire Dragon",
-      "ownerId": "3",
-      "locationId": "2",
-      "employeeId": "4",
+      "ownerId": 3,
+      "locationId": 2,
+      "employeeId": 4,
       "icon": "tictac.png",
       "id": 9
     }
@@ -86,13 +86,13 @@
     {
       "id": 1,
       "name": "Guadalupe Gryffindor",
-      "role": "Sitter",
+      "role": "Monster Guard",
       "locationId": 2
     },
     {
       "id": 2,
       "name": "Rowen Ravenclaw",
-      "role": "Sitter",
+      "role": "Monster Guard",
       "locationId": 2
     },
     {
@@ -104,8 +104,14 @@
     {
       "id": 4,
       "name": "Sally Slytherin",
-      "role": "Sitter",
+      "role": "Monster Guard",
       "locationId": 1
+    },
+    {
+      "name": "Hewlett Packard Lovecraft",
+      "role": "Cult Leader",
+      "locationId": "3",
+      "id": 5
     }
   ],
   "locations": [

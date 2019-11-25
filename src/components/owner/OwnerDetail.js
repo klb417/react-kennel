@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import APIManager from "../../modules/APIManager";
 
 class OwnerDetail extends Component {
@@ -44,9 +43,13 @@ class OwnerDetail extends Component {
           <button type="button" onClick={this.handleDelete}>
             Remove
           </button>
-          <Link to={"/owners"}>
-            <button type="button">Back</button>
-          </Link>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.push(`/owners`);
+            }}>
+            Back
+          </button>
         </div>
       </div>
     );

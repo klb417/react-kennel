@@ -20,11 +20,18 @@ class AnimalCard extends Component {
           </h2>
           {/* <p>Species: {this.props.animal.breed}</p> */}
           {/* <p>Owner: {this.props.animal.owner.name}</p> */}
-          {/* <button
+          <button
             type="button"
             onClick={() => this.props.deleteAnimal(this.props.animal.id)}>
             Let Loose
-          </button> */}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.push(`/animals/${this.props.animal.id}/edit`);
+            }}>
+            Edit
+          </button>
           <button
             type="button"
             onClick={() => {
@@ -32,13 +39,6 @@ class AnimalCard extends Component {
             }}>
             Details
           </button>
-          {/* <button
-            type="button"
-            onClick={() => {
-              this.props.history.push(`/animals/${this.props.animal.id}/edit`);
-            }}>
-            Edit
-          </button> */}
         </div>
       </div>
     );

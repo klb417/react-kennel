@@ -15,10 +15,12 @@ import Login from "./auth/Login";
 import AnimalEditForm from "./animal/AnimalEditForm";
 import LocationForm from "./location/LocationForm";
 import LocationEditForm from "./location/LocationEditForm";
+import EmployeeWithAnimals from "./employee/EmployeeWithAnimals";
+import EmployeeForm from "./employee/EmployeeForm";
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
   //returns true/false
-  isAuthenticated = () => localStorage.getItem("credentials") !== null;
+  isAuthenticated = () => this.props.isAuthenticated();
 
   render() {
     return (
@@ -135,13 +137,14 @@ class ApplicationViews extends Component {
           path="/employees"
           render={props => {
             if (this.isAuthenticated()) {
-              return <EmployeeList />;
+              return <EmployeeList {...props} />;
             } else {
               return <Redirect to="/login" />;
             }
           }}
         />
         <Route
+          exact
           path="/employees/:employeeId(\d+)"
           render={props => {
             return (
@@ -150,6 +153,18 @@ class ApplicationViews extends Component {
                 {...props}
               />
             );
+          }}
+        />
+        <Route
+          path="/employees/:employeeId(\d+)/details"
+          render={props => {
+            return <EmployeeWithAnimals {...props} />;
+          }}
+        />
+        <Route
+          path="/employees/new"
+          render={props => {
+            return <EmployeeForm {...props} />;
           }}
         />
         <Route

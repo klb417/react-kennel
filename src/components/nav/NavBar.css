@@ -4,7 +4,7 @@ small {
 
 header {
   background-color: darkblue;
-  border: cornflowerblue solid 3px;
+  /* border: cornflowerblue solid 3px; */
 }
 
 .site-title {
@@ -18,9 +18,9 @@ nav .container {
   margin-bottom: 0;
 }
 
-nav .container li {
+nav .container a {
   flex: 1;
-  padding: 10px;
+  /* padding: 10px; */
   text-align: center;
   font-size: 1.5em;
   color: cornsilk;
@@ -29,10 +29,20 @@ nav .container li {
   list-style-type: none;
 }
 
-nav .container a {
-  color: cornsilk;
+nav .container a:hover {
+  background-color: darkblue;
 }
 
-nav .container a:hover {
-  color: maroon;
+nav .container a li.active {
+  background-color: aliceblue;
+  color: cornflowerblue;
+}
+
+nav .container a:hover li.active {
+  background-color: aliceblue;
+}
+
+nav .container a {
+  color: cornsilk;
+  text-decoration: none;
 }

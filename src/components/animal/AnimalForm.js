@@ -56,9 +56,9 @@ class AnimalForm extends Component {
       const animal = {
         name: this.state.name,
         breed: this.state.breed,
-        ownerId: this.state.ownerId,
-        locationId: this.state.locationId,
-        employeeId: this.state.employeeId
+        ownerId: Number(this.state.ownerId),
+        locationId: Number(this.state.locationId),
+        employeeId: Number(this.state.employeeId)
       };
 
       // Create the animal and redirect user to animal list
