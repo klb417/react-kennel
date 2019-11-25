@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import APIManager from "../../modules/APIManager";
 
 class LocationDetail extends Component {
@@ -58,11 +57,24 @@ class LocationDetail extends Component {
             type="button"
             disabled={this.state.loadingStatus}
             onClick={this.handleDelete}>
-            Close
+            Destroy
           </button>
-          <Link to="/locations">
-            <button type="button">Back</button>
-          </Link>
+          <button
+            type="button"
+            onClick={() =>
+              this.props.history.push(
+                `/locations/${this.props.locationId}/edit`
+              )
+            }>
+            Edit
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.push("/locations");
+            }}>
+            Back
+          </button>
         </div>
       </div>
     );

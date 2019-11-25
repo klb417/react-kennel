@@ -76,7 +76,7 @@ class AnimalDetail extends Component {
             type="button"
             disabled={this.state.loadingStatus}
             onClick={this.handleDelete}>
-            Discharge
+            Let Loose
           </button>
           <button
             type="button"

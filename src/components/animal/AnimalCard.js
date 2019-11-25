@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Animal.css";
-import { Link } from "react-router-dom";
 
 class AnimalCard extends Component {
   render() {
@@ -24,7 +23,7 @@ class AnimalCard extends Component {
           {/* <button
             type="button"
             onClick={() => this.props.deleteAnimal(this.props.animal.id)}>
-            Discharge
+            Let Loose
           </button> */}
           <button
             type="button"

@@ -126,6 +126,12 @@
       "address": "Extra Dimensional Containment Facility",
       "hours": "24/7",
       "phone": "(555) 555-EVIL"
+    },
+    {
+      "address": "Mars Detention Facility",
+      "hours": "25/7",
+      "phone": "N/A",
+      "id": 4
     }
   ],
   "owners": [

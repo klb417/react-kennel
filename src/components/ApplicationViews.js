@@ -13,6 +13,7 @@ import OwnerDetail from "./owner/OwnerDetail";
 import AnimalForm from "./animal/AnimalForm";
 import Login from "./auth/Login";
 import AnimalEditForm from "./animal/AnimalEditForm";
+import LocationForm from "./location/LocationForm";
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
   //returns true/false
@@ -88,6 +89,7 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
+          exact
           path="/locations/:locationId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
@@ -97,6 +99,16 @@ class ApplicationViews extends Component {
                   {...props}
                 />
               );
+            } else {
+              return <Redirect to="/login" />;
+            }
+          }}
+        />
+        <Route
+          path="/locations/new"
+          render={props => {
+            if (this.isAuthenticated()) {
+              return <LocationForm {...props} />;
             } else {
               return <Redirect to="/login" />;
             }

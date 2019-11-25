@@ -11,18 +11,18 @@ class LocationCard extends Component {
           </h3>
           <p>Hours: {this.props.kennelLocation.hours}</p>
           <p>Phone: {this.props.kennelLocation.phone}</p>
-          <button
+          {/* <button
             type="button"
             onClick={() =>
               this.props.deleteLocation(this.props.kennelLocation.id)
             }>
-            Close
-          </button>
+            Destroy
+          </button> */}
           <button
             type="button"
             onClick={() => {
               this.props.history.push(
-                `/animals/${this.props.kennelLocation.id}`
+                `/locations/${this.props.kennelLocation.id}`
               );
             }}>
             Details
