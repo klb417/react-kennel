@@ -14,6 +14,7 @@ import AnimalForm from "./animal/AnimalForm";
 import Login from "./auth/Login";
 import AnimalEditForm from "./animal/AnimalEditForm";
 import LocationForm from "./location/LocationForm";
+import LocationEditForm from "./location/LocationEditForm";
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
   //returns true/false
@@ -95,6 +96,21 @@ class ApplicationViews extends Component {
             if (this.isAuthenticated()) {
               return (
                 <LocationDetail
+                  locationId={parseInt(props.match.params.locationId)}
+                  {...props}
+                />
+              );
+            } else {
+              return <Redirect to="/login" />;
+            }
+          }}
+        />
+        <Route
+          path="/locations/:locationId(\d+)/edit"
+          render={props => {
+            if (this.isAuthenticated()) {
+              return (
+                <LocationEditForm
                   locationId={parseInt(props.match.params.locationId)}
                   {...props}
                 />
