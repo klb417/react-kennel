@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Animal.css";
-import { Link } from "react-router-dom";
 
 class AnimalCard extends Component {
   render() {
@@ -19,17 +18,27 @@ class AnimalCard extends Component {
           <h2>
             <span className="card-petname">{this.props.animal.name}</span>
           </h2>
-          <p>Species: {this.props.animal.breed}</p>
+          {/* <p>Species: {this.props.animal.breed}</p> */}
           {/* <p>Owner: {this.props.animal.owner.name}</p> */}
+          {/* <button
+            type="button"
+            onClick={() => this.props.deleteAnimal(this.props.animal.id)}>
+            Let Loose
+          </button> */}
           <button
             type="button"
-            onClick={() => this.props.deleteAnimal(this.props.animal.id)}
-          >
-            Discharge
+            onClick={() => {
+              this.props.history.push(`/animals/${this.props.animal.id}`);
+            }}>
+            Details
           </button>
-          <Link to={`/animals/${this.props.animal.id}`}>
-            <button>Details</button>
-          </Link>
+          {/* <button
+            type="button"
+            onClick={() => {
+              this.props.history.push(`/animals/${this.props.animal.id}/edit`);
+            }}>
+            Edit
+          </button> */}
         </div>
       </div>
     );

@@ -12,13 +12,22 @@ export default {
       method: "DELETE"
     }).then(result => result.json());
   },
-  post(route, newAnimal) {
+  post(route, newItem) {
     return fetch(`${remoteURL}/${route}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(newAnimal)
+      body: JSON.stringify(newItem)
+    }).then(data => data.json());
+  },
+  update(route, editedItem) {
+    return fetch(`${remoteURL}/${route}/${editedItem.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedItem)
     }).then(data => data.json());
   }
 };

@@ -53,9 +53,8 @@ class EmployeeDetail extends Component {
           <button
             type="button"
             disabled={this.state.loadingStatus}
-            onClick={this.handleDelete}
-          >
-            Fire
+            onClick={this.handleDelete}>
+            Feed to Beasts
           </button>
           <Link to="/employees">
             <button type="button">Back</button>

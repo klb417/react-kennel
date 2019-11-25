@@ -34,17 +34,28 @@ class LocationList extends Component {
   render() {
     return (
       <>
-        {this.state.loadingStatus ? (
-          <p>App is loading</p>
-        ) : (
-          this.state.locations.map(location => (
-            <LocationCard
-              key={location.id}
-              location={location}
-              deleteLocation={this.deleteLocation}
-            />
-          ))
-        )}
+        <section className="section-content">
+          <button
+            type="button"
+            className="btn"
+            onClick={() => this.props.history.push("/locations/new")}>
+            Open Location
+          </button>
+        </section>
+        <div className="container-cards">
+          {this.state.loadingStatus ? (
+            <p>App is loading</p>
+          ) : (
+            this.state.locations.map(location => (
+              <LocationCard
+                key={location.id}
+                kennelLocation={location}
+                deleteLocation={this.deleteLocation}
+                {...this.props}
+              />
+            ))
+          )}
+        </div>
       </>
     );
   }

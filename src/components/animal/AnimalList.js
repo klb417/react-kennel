@@ -37,8 +37,7 @@ class AnimalList extends Component {
             className="btn"
             onClick={() => {
               this.props.history.push("/animals/new");
-            }}
-          >
+            }}>
             Admit Animal
           </button>
         </section>
@@ -48,6 +47,7 @@ class AnimalList extends Component {
               key={animal.id}
               animal={animal}
               deleteAnimal={this.deleteAnimal}
+              {...this.props}
             />
           ))}
         </div>

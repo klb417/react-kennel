@@ -21,7 +21,7 @@ class AnimalDetail extends Component {
     APIManager.get(
       `animals/${this.props.animalId}?_expand=owner&_expand=location&_expand=employee`
     ).then(animal => {
-      console.log(animal)
+      console.log(animal);
       this.setState({
         name: animal.name,
         breed: animal.breed,
@@ -60,8 +60,7 @@ class AnimalDetail extends Component {
           <p>Owner: {this.state.owner}</p>
           <Link
             style={{ textDecoration: "none" }}
-            to={`/locations/${this.state.location.id}`}
-          >
+            to={`/locations/${this.state.location.id}`}>
             {this.state.location.address ? (
               <p>Location: {this.state.location.address}</p>
             ) : (
@@ -70,20 +69,29 @@ class AnimalDetail extends Component {
           </Link>
           <Link
             style={{ textDecoration: "none" }}
-            to={`/employees/${this.state.employee.id}`}
-          >
+            to={`/employees/${this.state.employee.id}`}>
             <p>Responsibility: {this.state.employee.name}</p>
           </Link>
           <button
             type="button"
             disabled={this.state.loadingStatus}
-            onClick={this.handleDelete}
-          >
-            Discharge
+            onClick={this.handleDelete}>
+            Let Loose
           </button>
-          <Link to="/animals">
-            <button type="button">Back</button>
-          </Link>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.push(`/animals/${this.props.animalId}/edit`);
+            }}>
+            Edit
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.push(`/animals`);
+            }}>
+            Back
+          </button>
         </div>
       </div>
     );
