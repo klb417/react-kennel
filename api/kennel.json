@@ -80,6 +80,15 @@
       "employeeId": 4,
       "icon": "tictac.png",
       "id": 9
+    },
+    {
+      "name": "Mecha Godzilla",
+      "breed": "Giant Robot",
+      "ownerId": 3,
+      "locationId": 4,
+      "employeeId": 1,
+      "icon": "mechagodzilla.png",
+      "id": 10
     }
   ],
   "employees": [
@@ -129,7 +138,7 @@
     },
     {
       "id": 3,
-      "address": "Extra Dimensional Containment Facility",
+      "address": "Cosmic Horror Containment Facility",
       "hours": "24/7",
       "phone": "(555) 555-EVIL"
     },

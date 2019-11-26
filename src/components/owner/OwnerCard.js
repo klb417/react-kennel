@@ -15,6 +15,12 @@ class OwnerCard extends Component {
             Remove
           </button>
           <button
+            onClick={() =>
+              this.props.history.push(`/owner/${this.props.owner.id}/edit`)
+            }>
+            Edit
+          </button>
+          <button
             type="button"
             onClick={() => {
               this.props.history.push(`/owners/${this.props.owner.id}`);
