@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./OwnerCard.css";
 
 class OwnerCard extends Component {
@@ -15,9 +14,19 @@ class OwnerCard extends Component {
           <button onClick={() => this.props.deleteOwner(this.props.owner.id)}>
             Remove
           </button>
-          <Link to={`/owners/${this.props.owner.id}`}>
-            <button type="button">Details</button>
-          </Link>
+          <button
+            onClick={() =>
+              this.props.history.push(`/owner/${this.props.owner.id}/edit`)
+            }>
+            Edit
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.push(`/owners/${this.props.owner.id}`);
+            }}>
+            Details
+          </button>
         </div>
       </div>
     );

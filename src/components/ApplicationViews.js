@@ -5,20 +5,22 @@ import Home from "./home/Home";
 import LocationList from "./location/LocationList";
 import EmployeeList from "./employee/EmployeeList";
 import OwnerList from "./owner/OwnerList";
-import AnimalList from "./animal/AnimalList";
-import AnimalDetail from "./animal/AnimalDetail";
+import BeastList from "./beast/BeastList";
+import BeastDetail from "./beast/BeastDetail";
 import LocationDetail from "./location/LocationDetail";
 import EmployeeDetail from "./employee/EmployeeDetail";
 import OwnerDetail from "./owner/OwnerDetail";
-import AnimalForm from "./animal/AnimalForm";
+import BeastForm from "./beast/BeastForm";
 import Login from "./auth/Login";
-import AnimalEditForm from "./animal/AnimalEditForm";
+import BeastEditForm from "./beast/BeastEditForm";
 import LocationForm from "./location/LocationForm";
 import LocationEditForm from "./location/LocationEditForm";
+import EmployeeWithBeasts from "./employee/EmployeeWithBeasts";
+import EmployeeForm from "./employee/EmployeeForm";
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
   //returns true/false
-  isAuthenticated = () => localStorage.getItem("credentials") !== null;
+  isAuthenticated = () => this.props.isAuthenticated();
 
   render() {
     return (
@@ -37,10 +39,10 @@ class ApplicationViews extends Component {
         />
         <Route
           exact
-          path="/animals"
+          path="/beasts"
           render={props => {
             if (this.isAuthenticated()) {
-              return <AnimalList {...props} />;
+              return <BeastList {...props} />;
             } else {
               return <Redirect to="/login" />;
             }
@@ -48,12 +50,12 @@ class ApplicationViews extends Component {
         />
         <Route
           exact
-          path="/animals/:animalId(\d+)"
+          path="/beasts/:beastId(\d+)"
           render={props => {
             if (this.isAuthenticated()) {
               return (
-                <AnimalDetail
-                  animalId={parseInt(props.match.params.animalId)}
+                <BeastDetail
+                  beastId={parseInt(props.match.params.beastId)}
                   {...props}
                 />
               );
@@ -63,16 +65,16 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
-          path="/animals/:animalId(\d+)/edit"
+          path="/beasts/:beastId(\d+)/edit"
           render={props => {
-            return <AnimalEditForm {...props} />;
+            return <BeastEditForm {...props} />;
           }}
         />
         <Route
-          path="/animals/new"
+          path="/beasts/new"
           render={props => {
             if (this.isAuthenticated()) {
-              return <AnimalForm {...props} />;
+              return <BeastForm {...props} />;
             } else {
               return <Redirect to="/login" />;
             }
@@ -135,13 +137,14 @@ class ApplicationViews extends Component {
           path="/employees"
           render={props => {
             if (this.isAuthenticated()) {
-              return <EmployeeList />;
+              return <EmployeeList {...props} />;
             } else {
               return <Redirect to="/login" />;
             }
           }}
         />
         <Route
+          exact
           path="/employees/:employeeId(\d+)"
           render={props => {
             return (
@@ -150,6 +153,18 @@ class ApplicationViews extends Component {
                 {...props}
               />
             );
+          }}
+        />
+        <Route
+          path="/employees/:employeeId(\d+)/details"
+          render={props => {
+            return <EmployeeWithBeasts {...props} />;
+          }}
+        />
+        <Route
+          path="/employees/new"
+          render={props => {
+            return <EmployeeForm {...props} />;
           }}
         />
         <Route

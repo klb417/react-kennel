@@ -1,18 +1,44 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
-import "./AnimalForm.css";
+import "./BeastForm.css";
 
-class AnimalForm extends Component {
+class BeastEditForm extends Component {
+  //set the initial state
   state = {
     name: "",
     breed: "",
     ownerId: "",
     locationId: "",
     employeeId: "",
+    icon: "",
     owners: [],
     locations: [],
     employees: [],
     loadingStatus: true
+  };
+
+  handleFieldChange = evt => {
+    const stateToChange = {};
+    stateToChange[evt.target.id] = evt.target.value;
+    this.setState(stateToChange);
+  };
+
+  updateExistingBeast = evt => {
+    evt.preventDefault();
+    this.setState({ loadingStatus: true });
+    const editedBeast = {
+      id: Number(this.props.match.params.beastId),
+      name: this.state.name,
+      breed: this.state.breed,
+      ownerId: Number(this.state.ownerId),
+      locationId: Number(this.state.locationId),
+      employeeId: Number(this.state.employeeId),
+      icon: this.state.icon
+    };
+
+    APIManager.update("beasts", editedBeast).then(() =>
+      this.props.history.goBack()
+    );
   };
 
   componentDidMount() {
@@ -21,52 +47,25 @@ class AnimalForm extends Component {
       stateData.owners = owners;
       APIManager.getAll(`locations`).then(locations => {
         stateData.locations = locations;
-        APIManager.getAll(`employees`).then(employees => {
-          stateData.employees = employees;
-          this.setState({
-            owners: stateData.owners,
-            locations: stateData.locations,
-            employees: stateData.employees,
-            loadingStatus: false
+        APIManager.getAll(`employees`)
+          .then(employees => {
+            stateData.employees = employees;
+          })
+          .then(() => {
+            APIManager.get(`beasts/${this.props.match.params.beastId}`).then(
+              beast => {
+                console.log(beast);
+                this.setState({
+                  ...beast,
+                  ...stateData,
+                  loadingStatus: false
+                });
+              }
+            );
           });
-        });
       });
     });
   }
-  handleFieldChange = evt => {
-    const stateToChange = {};
-    stateToChange[evt.target.id] = evt.target.value;
-    this.setState(stateToChange);
-  };
-
-  /*  Local method for validation, set loadingStatus, create animal      object, invoke the APIManager post method, and redirect to the full animal list
-   */
-  constructNewAnimal = evt => {
-    evt.preventDefault();
-    if (
-      this.state.name === "" ||
-      this.state.breed === "" ||
-      this.state.ownerId === "" ||
-      this.state.locationId === "" ||
-      this.state.employeeId === ""
-    ) {
-      window.alert("Please fill out all fields");
-    } else {
-      this.setState({ loadingStatus: true });
-      const animal = {
-        name: this.state.name,
-        breed: this.state.breed,
-        ownerId: this.state.ownerId,
-        locationId: this.state.locationId,
-        employeeId: this.state.employeeId
-      };
-
-      // Create the animal and redirect user to animal list
-      APIManager.post("animals", animal).then(() =>
-        this.props.history.push("/animals")
-      );
-    }
-  };
 
   render() {
     return (
@@ -76,27 +75,28 @@ class AnimalForm extends Component {
             <input
               type="text"
               required
+              className="form-control"
               onChange={this.handleFieldChange}
               id="name"
-              placeholder="Name"
+              value={this.state.name}
             />
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Beast name</label>
+
             <input
               type="text"
               required
+              className="form-control"
               onChange={this.handleFieldChange}
               id="breed"
-              placeholder="Breed"
+              value={this.state.breed}
             />
             <label htmlFor="breed">Breed</label>
             <select
               required
               onChange={this.handleFieldChange}
               id="ownerId"
-              placeholder="Owner">
-              <option default hidden value="">
-                Select Owner
-              </option>
+              placeholder="Owner"
+              value={this.state.ownerId}>
               {this.state.owners.map(owner => (
                 <option key={owner.id} value={owner.id}>
                   {owner.name}
@@ -108,10 +108,8 @@ class AnimalForm extends Component {
               required
               onChange={this.handleFieldChange}
               id="locationId"
-              placeholder="Location">
-              <option default hidden value="">
-                Select Location
-              </option>
+              placeholder="Location"
+              value={this.state.locationId}>
               {this.state.locations.map(location => (
                 <option key={location.id} value={location.id}>
                   {location.address}
@@ -123,10 +121,8 @@ class AnimalForm extends Component {
               required
               onChange={this.handleFieldChange}
               id="employeeId"
-              placeholder="Employee">
-              <option default hidden value="">
-                Select Employee
-              </option>
+              placeholder="Employee"
+              value={this.state.employeeId}>
               {this.state.employees.map(employee => (
                 <option key={employee.id} value={employee.id}>
                   {employee.name}
@@ -139,7 +135,8 @@ class AnimalForm extends Component {
             <button
               type="button"
               disabled={this.state.loadingStatus}
-              onClick={this.constructNewAnimal}>
+              onClick={this.updateExistingBeast}
+              className="btn btn-primary">
               Submit
             </button>
           </div>
@@ -149,4 +146,4 @@ class AnimalForm extends Component {
   }
 }
 
-export default AnimalForm;
+export default BeastEditForm;

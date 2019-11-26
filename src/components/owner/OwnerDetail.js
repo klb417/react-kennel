@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import APIManager from "../../modules/APIManager";
 
 class OwnerDetail extends Component {
@@ -7,11 +6,11 @@ class OwnerDetail extends Component {
     name: "",
     address: "",
     phone: "",
-    animals: [],
+    beasts: [],
     loadingStatus: true
   };
   componentDidMount() {
-    APIManager.get(`owners/${this.props.ownerId}?_embed=animals`).then(
+    APIManager.get(`owners/${this.props.ownerId}?_embed=beasts`).then(
       owner => {
         this.setState({
           ...owner,
@@ -37,16 +36,20 @@ class OwnerDetail extends Component {
           <p>Phone: {this.state.phone}</p>
           <ul>
             pets:
-            {this.state.animals.map(animal => (
-              <li key={animal.id}>{animal.name}</li>
+            {this.state.beasts.map(beast => (
+              <li key={beast.id}>{beast.name}</li>
             ))}
           </ul>
           <button type="button" onClick={this.handleDelete}>
             Remove
           </button>
-          <Link to={"/owners"}>
-            <button type="button">Back</button>
-          </Link>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.push(`/owners`);
+            }}>
+            Back
+          </button>
         </div>
       </div>
     );

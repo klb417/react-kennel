@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 class EmployeeCard extends Component {
   render() {
@@ -15,9 +14,24 @@ class EmployeeCard extends Component {
             onClick={() => this.props.deleteEmployee(this.props.employee.id)}>
             Feed to Beasts
           </button>
-          <Link to={`employees/${this.props.employee.id}`}>
-            <button type="button">Details</button>
-          </Link>
+          <button
+            type="button"
+            onClick={() =>
+              this.props.history.push(
+                `/employees/${this.props.employee.id}/edit`
+              )
+            }>
+            Edit
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.push(
+                `/employees/${this.props.employee.id}/details`
+              );
+            }}>
+            Details
+          </button>
         </div>
       </div>
     );

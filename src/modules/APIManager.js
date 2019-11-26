@@ -23,7 +23,7 @@ export default {
   },
   update(route, editedItem) {
     return fetch(`${remoteURL}/${route}/${editedItem.id}`, {
-      method: "PATCH",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },

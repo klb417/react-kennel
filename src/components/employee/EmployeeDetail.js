@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import APIManager from "../../modules/APIManager";
 
 class EmployeeDetail extends Component {
@@ -7,22 +6,21 @@ class EmployeeDetail extends Component {
     name: "",
     role: "",
     location: "",
-    animals: [],
+    beasts: [],
     loadingStatus: true
   };
   componentDidMount() {
     const employeeDetails = {};
-    APIManager.get(`employees/${this.props.employeeId}?_expand=location`)
+    APIManager.get(
+      `employees/${this.props.employeeId}?_expand=location&_embed=beasts`
+    )
       .then(employee => {
         employeeDetails.name = employee.name;
         employeeDetails.role = employee.role;
         employeeDetails.location = employee.location.address;
+        employeeDetails.beasts = employee.beasts;
       })
       .then(() => {
-        return APIManager.get(`animals/?employeeId=${this.props.employeeId}`);
-      })
-      .then(animals => {
-        employeeDetails["animals"] = animals;
         this.setState({
           ...employeeDetails,
           loadingStatus: false
@@ -46,8 +44,8 @@ class EmployeeDetail extends Component {
           <p>Location: {this.state.location}</p>
           <ul>
             Responsibilities:
-            {this.state.animals.map(animal => (
-              <li key={animal.id}>{animal.name}</li>
+            {this.state.beasts.map(beast => (
+              <li key={beast.id}>{beast.name}</li>
             ))}
           </ul>
           <button
@@ -56,9 +54,13 @@ class EmployeeDetail extends Component {
             onClick={this.handleDelete}>
             Feed to Beasts
           </button>
-          <Link to="/employees">
-            <button type="button">Back</button>
-          </Link>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.push(`/employees`);
+            }}>
+            Back
+          </button>
         </div>
       </div>
     );

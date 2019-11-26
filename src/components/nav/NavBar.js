@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./NavBar.css";
 
 class NavBar extends Component {
   render() {
+    console.log(this.props.history);
+    const pathname = this.props.history.location.pathname;
     return (
       <header>
         <h1 className="site-title">
@@ -13,31 +15,29 @@ class NavBar extends Component {
         </h1>
         <nav>
           <ul className="container">
-            <li>
-              <Link className="nav-link" to="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="nav-link" to="/animals">
-                Animals
-              </Link>
-            </li>
-            <li>
-              <Link className="nav-link" to="/locations">
+            <Link className="nav-link" to="/">
+              <li className={pathname === "/" ? "active" : ""}>Home</li>
+            </Link>
+            <Link className="nav-link" to="/beasts">
+              <li className={pathname.includes("/beasts") ? "active" : ""}>
+                Beasts
+              </li>
+            </Link>
+            <Link className="nav-link" to="/locations">
+              <li className={pathname.includes("/locations") ? "active" : ""}>
                 Locations
-              </Link>
-            </li>
-            <li>
-              <Link className="nav-link" to="/employees">
+              </li>
+            </Link>
+            <Link className="nav-link" to="/employees">
+              <li className={pathname.includes("/employees") ? "active" : ""}>
                 Employees
-              </Link>
-            </li>
-            <li>
-              <Link className="nav-link" to="/owners">
+              </li>
+            </Link>
+            <Link className="nav-link" to="/owners">
+              <li className={pathname.includes("/owners") ? "active" : ""}>
                 Owners
-              </Link>
-            </li>
+              </li>
+            </Link>
           </ul>
         </nav>
       </header>
@@ -45,4 +45,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

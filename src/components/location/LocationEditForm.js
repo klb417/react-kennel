@@ -16,12 +16,12 @@ class LocationEditForm extends Component {
   updateExistingLocation = () => {
     this.setState({ loadingStatus: true });
     const updatedLocation = {
-      id: this.props.locationId,
+      id: Number(this.props.locationId),
       address: this.state.address,
       hours: this.state.hours,
       phone: this.state.phone
     };
-    APIManager.update("locations/", updatedLocation).then(() => {
+    APIManager.update("locations", updatedLocation).then(() => {
       this.props.history.push("/locations");
     });
   };

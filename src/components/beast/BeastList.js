@@ -1,28 +1,28 @@
 import React, { Component } from "react";
 //import the components we will need
-import AnimalCard from "./AnimalCard";
+import BeastCard from "./BeastCard";
 import APIManager from "../../modules/APIManager";
 
-class AnimalList extends Component {
+class BeastList extends Component {
   //define what this component needs to render
   state = {
-    animals: []
+    beasts: []
   };
 
   componentDidMount() {
     //getAll from APIManager and hang on to that data; put it in state
-    APIManager.getAll("animals/?_expand=owner").then(animals => {
+    APIManager.getAll("beasts/?_expand=owner").then(beasts => {
       this.setState({
-        animals: animals
+        beasts: beasts
       });
     });
   }
 
-  deleteAnimal = id => {
-    APIManager.delete(`animals/${id}`).then(() => {
-      APIManager.getAll("animals/?_expand=owner").then(newAnimals => {
+  deleteBeast = id => {
+    APIManager.delete(`beasts/${id}`).then(() => {
+      APIManager.getAll("beasts/?_expand=owner").then(newBeasts => {
         this.setState({
-          animals: newAnimals
+          beasts: newBeasts
         });
       });
     });
@@ -36,17 +36,17 @@ class AnimalList extends Component {
             type="button"
             className="btn"
             onClick={() => {
-              this.props.history.push("/animals/new");
+              this.props.history.push("/beasts/new");
             }}>
-            Admit Animal
+            Admit Beast
           </button>
         </section>
         <div className="container-cards">
-          {this.state.animals.map(animal => (
-            <AnimalCard
-              key={animal.id}
-              animal={animal}
-              deleteAnimal={this.deleteAnimal}
+          {this.state.beasts.map(beast => (
+            <BeastCard
+              key={beast.id}
+              beast={beast}
+              deleteBeast={this.deleteBeast}
               {...this.props}
             />
           ))}
@@ -56,4 +56,4 @@ class AnimalList extends Component {
   }
 }
 
-export default AnimalList;
+export default BeastList;

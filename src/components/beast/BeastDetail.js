@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import APIManager from "../../modules/APIManager";
-import "./Animal.css";
+import "./Beast.css";
 
-import "./AnimalDetail.css";
+import "./BeastDetail.css";
 
-class AnimalDetail extends Component {
+class BeastDetail extends Component {
   state = {
     name: "",
     breed: "",
@@ -19,25 +19,25 @@ class AnimalDetail extends Component {
   componentDidMount() {
     //get(id) from APIManager and hang on to the data; put it into state
     APIManager.get(
-      `animals/${this.props.animalId}?_expand=owner&_expand=location&_expand=employee`
-    ).then(animal => {
-      console.log(animal);
+      `beasts/${this.props.beastId}?_expand=owner&_expand=location&_expand=employee`
+    ).then(beast => {
+      console.log(beast);
       this.setState({
-        name: animal.name,
-        breed: animal.breed,
-        owner: animal.owner.name,
-        location: animal.location,
-        employee: animal.employee,
-        icon: animal.icon,
+        name: beast.name,
+        breed: beast.breed,
+        owner: beast.owner.name,
+        location: beast.location,
+        employee: beast.employee,
+        icon: beast.icon,
         loadingStatus: false
       });
     });
   }
   handleDelete = () => {
-    //invoke the delete function in AnimalManger and re-direct to the animal list.
+    //invoke the delete function in BeastManger and re-direct to the beast list.
     this.setState({ loadingStatus: true });
-    APIManager.delete(`animals/${this.props.animalId}`).then(() =>
-      this.props.history.push("/animals")
+    APIManager.delete(`beasts/${this.props.beastId}`).then(() =>
+      this.props.history.push("/beasts")
     );
   };
   render() {
@@ -81,14 +81,14 @@ class AnimalDetail extends Component {
           <button
             type="button"
             onClick={() => {
-              this.props.history.push(`/animals/${this.props.animalId}/edit`);
+              this.props.history.push(`/beasts/${this.props.beastId}/edit`);
             }}>
             Edit
           </button>
           <button
             type="button"
             onClick={() => {
-              this.props.history.push(`/animals`);
+              this.props.history.push(`/beasts`);
             }}>
             Back
           </button>
@@ -98,4 +98,4 @@ class AnimalDetail extends Component {
   }
 }
 
-export default AnimalDetail;
+export default BeastDetail;

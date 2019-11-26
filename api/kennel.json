@@ -1,5 +1,5 @@
 {
-  "animals": [
+  "beasts": [
     {
       "id": 1,
       "name": "Godzilla",
@@ -51,7 +51,7 @@
       "breed": "T̵͍̝̠͊̏̀h̴̊̇̌͜e̵̬͈̟̾̅ ̴̧̼̀͆̑G̴̝̯͈̎̿͊r̸̞͑̔e̷̙̭͈͆̽͊ȁ̵͓̿͒ẗ̴̳́ ̵̞̻̼͠D̸̖͐̈́̒ȑ̶̨̘̏̇ė̶͙̫̮a̴̗͍̓͜m̵̗͇͋̌ĕ̷̹r̸̹̣͂ͅ",
       "ownerId": 5,
       "locationId": 3,
-      "employeeId": 1,
+      "employeeId": 5,
       "icon": "cthulhu.png"
     },
     {
@@ -60,7 +60,7 @@
       "breed": "D̷͍̬͆̅͐e̵͕̠̥̋̀̽e̴̪̟͜͝p̵̥̂́ ̸̍ͅO̴͙͎͉͂͛͠n̴̪̞̔ë̵̡́͝",
       "ownerId": 5,
       "locationId": 3,
-      "employeeId": 1,
+      "employeeId": 5,
       "icon": "dagon.png"
     },
     {
@@ -75,24 +75,33 @@
     {
       "name": "Tic Tac",
       "breed": "Fire Dragon",
-      "ownerId": "3",
-      "locationId": "2",
-      "employeeId": "4",
+      "ownerId": 3,
+      "locationId": 2,
+      "employeeId": 4,
       "icon": "tictac.png",
       "id": 9
+    },
+    {
+      "name": "Mecha Godzilla",
+      "breed": "Giant Robot",
+      "ownerId": 3,
+      "locationId": 4,
+      "employeeId": 1,
+      "icon": "mechagodzilla.png",
+      "id": 10
     }
   ],
   "employees": [
     {
       "id": 1,
       "name": "Guadalupe Gryffindor",
-      "role": "Sitter",
+      "role": "Monster Guard",
       "locationId": 2
     },
     {
       "id": 2,
       "name": "Rowen Ravenclaw",
-      "role": "Sitter",
+      "role": "Monster Guard",
       "locationId": 2
     },
     {
@@ -104,8 +113,14 @@
     {
       "id": 4,
       "name": "Sally Slytherin",
-      "role": "Sitter",
+      "role": "Monster Guard",
       "locationId": 1
+    },
+    {
+      "name": "Hewlett Packard Lovecraft",
+      "role": "Cult Leader",
+      "locationId": "3",
+      "id": 5
     }
   ],
   "locations": [
@@ -123,7 +138,7 @@
     },
     {
       "id": 3,
-      "address": "Extra Dimensional Containment Facility",
+      "address": "Cosmic Horror Containment Facility",
       "hours": "24/7",
       "phone": "(555) 555-EVIL"
     },
@@ -175,42 +190,42 @@
   "ownerships": [
     {
       "id": 1,
-      "animalId": 1,
+      "beastId": 1,
       "ownerId": 2
     },
     {
       "id": 2,
-      "animalId": 2,
+      "beastId": 2,
       "ownerId": 4
     },
     {
       "id": 3,
-      "animalId": 3,
+      "beastId": 3,
       "ownerId": 1
     },
     {
       "id": 4,
-      "animalId": 4,
+      "beastId": 4,
       "ownerId": 2
     },
     {
       "id": 5,
-      "animalId": 5,
+      "beastId": 5,
       "ownerId": 3
     },
     {
       "id": 6,
-      "animalId": 6,
+      "beastId": 6,
       "ownerId": 5
     },
     {
       "id": 7,
-      "animalId": 7,
+      "beastId": 7,
       "ownerId": 5
     },
     {
       "id": 8,
-      "animalId": 8,
+      "beastId": 8,
       "ownerId": 6
     }
   ]
