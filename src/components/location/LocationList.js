@@ -9,7 +9,7 @@ class LocationList extends Component {
   };
 
   componentDidMount() {
-    APIManager.getAll("locations/?_embed=employees&_embed=animals").then(
+    APIManager.getAll("locations/?_embed=employees&_embed=beasts").then(
       locations => {
         this.setState({
           locations: locations,
@@ -21,7 +21,7 @@ class LocationList extends Component {
   deleteLocation = id => {
     this.setState({ loadingStatus: true });
     APIManager.delete(`locations/${id}`).then(() => {
-      APIManager.getAll("locations/?_embed=employees&_embed=animals").then(
+      APIManager.getAll("locations/?_embed=employees&_embed=beasts").then(
         locations => {
           this.setState({
             locations: locations,

@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
-import AnimalCard from "../animal/AnimalCard";
+import BeastCard from "../beast/BeastCard";
 
-class EmployeeWithAnimals extends Component {
+class EmployeeWithBeasts extends Component {
   state = {
     employee: {},
-    animals: [],
+    beasts: [],
     location: {},
     loadingStatus: true
   };
 
   componentDidMount() {
-    //got here now make call to get employee with animal
+    //got here now make call to get employee with beast
     APIManager.get(
-      `employees/${this.props.match.params.employeeId}?_expand=location&_embed=animals`
+      `employees/${this.props.match.params.employeeId}?_expand=location&_embed=beasts`
     ).then(APIResult => {
       this.setState({
         employee: APIResult,
-        animals: APIResult.animals,
+        beasts: APIResult.beasts,
         location: APIResult.location,
         loadingStatus: false
       });
@@ -33,8 +33,8 @@ class EmployeeWithAnimals extends Component {
           <p>Location: {this.state.location.address}</p>
           <h3>Responsibilities:</h3>
           <div className="container-cards">
-            {this.state.animals.map(animal => (
-              <AnimalCard key={animal.id} animal={animal} {...this.props} />
+            {this.state.beasts.map(beast => (
+              <BeastCard key={beast.id} beast={beast} {...this.props} />
             ))}
           </div>
           <button
@@ -56,4 +56,4 @@ class EmployeeWithAnimals extends Component {
   }
 }
 
-export default EmployeeWithAnimals;
+export default EmployeeWithBeasts;

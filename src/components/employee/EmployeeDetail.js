@@ -6,19 +6,19 @@ class EmployeeDetail extends Component {
     name: "",
     role: "",
     location: "",
-    animals: [],
+    beasts: [],
     loadingStatus: true
   };
   componentDidMount() {
     const employeeDetails = {};
     APIManager.get(
-      `employees/${this.props.employeeId}?_expand=location&_embed=animals`
+      `employees/${this.props.employeeId}?_expand=location&_embed=beasts`
     )
       .then(employee => {
         employeeDetails.name = employee.name;
         employeeDetails.role = employee.role;
         employeeDetails.location = employee.location.address;
-        employeeDetails.animals = employee.animals;
+        employeeDetails.beasts = employee.beasts;
       })
       .then(() => {
         this.setState({
@@ -44,8 +44,8 @@ class EmployeeDetail extends Component {
           <p>Location: {this.state.location}</p>
           <ul>
             Responsibilities:
-            {this.state.animals.map(animal => (
-              <li key={animal.id}>{animal.name}</li>
+            {this.state.beasts.map(beast => (
+              <li key={beast.id}>{beast.name}</li>
             ))}
           </ul>
           <button

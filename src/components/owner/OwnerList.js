@@ -9,7 +9,7 @@ class OwnerList extends Component {
   };
 
   componentDidMount() {
-    APIManager.getAll("owners/?_embed=animals").then(owners => {
+    APIManager.getAll("owners/?_embed=beasts").then(owners => {
       this.setState({
         owners: owners,
         loadingStatus: false
@@ -19,7 +19,7 @@ class OwnerList extends Component {
   deleteOwner = id => {
     this.setState({ loadingStatus: true });
     APIManager.delete(`owners/${id}`).then(() => {
-      APIManager.getAll("owners/?_embed=animals").then(owners => {
+      APIManager.getAll("owners/?_embed=beasts").then(owners => {
         this.setState({
           owners: owners,
           loadingStatus: false

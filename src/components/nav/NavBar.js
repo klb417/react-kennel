@@ -18,9 +18,9 @@ class NavBar extends Component {
             <Link className="nav-link" to="/">
               <li className={pathname === "/" ? "active" : ""}>Home</li>
             </Link>
-            <Link className="nav-link" to="/animals">
-              <li className={pathname.includes("/animals") ? "active" : ""}>
-                Animals
+            <Link className="nav-link" to="/beasts">
+              <li className={pathname.includes("/beasts") ? "active" : ""}>
+                Beasts
               </li>
             </Link>
             <Link className="nav-link" to="/locations">

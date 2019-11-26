@@ -1,5 +1,5 @@
 {
-  "animals": [
+  "beasts": [
     {
       "id": 1,
       "name": "Godzilla",
@@ -190,42 +190,42 @@
   "ownerships": [
     {
       "id": 1,
-      "animalId": 1,
+      "beastId": 1,
       "ownerId": 2
     },
     {
       "id": 2,
-      "animalId": 2,
+      "beastId": 2,
       "ownerId": 4
     },
     {
       "id": 3,
-      "animalId": 3,
+      "beastId": 3,
       "ownerId": 1
     },
     {
       "id": 4,
-      "animalId": 4,
+      "beastId": 4,
       "ownerId": 2
     },
     {
       "id": 5,
-      "animalId": 5,
+      "beastId": 5,
       "ownerId": 3
     },
     {
       "id": 6,
-      "animalId": 6,
+      "beastId": 6,
       "ownerId": 5
     },
     {
       "id": 7,
-      "animalId": 7,
+      "beastId": 7,
       "ownerId": 5
     },
     {
       "id": 8,
-      "animalId": 8,
+      "beastId": 8,
       "ownerId": 6
     }
   ]

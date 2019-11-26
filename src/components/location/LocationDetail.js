@@ -7,20 +7,20 @@ class LocationDetail extends Component {
     hours: "",
     phone: "",
     employees: [],
-    animals: [],
+    beasts: [],
     loadingStatus: true
   };
 
   componentDidMount() {
     APIManager.get(
-      `locations/${this.props.locationId}?_embed=employees&_embed=animals`
+      `locations/${this.props.locationId}?_embed=employees&_embed=beasts`
     ).then(location => {
       this.setState({
         address: location.address,
         hours: location.hours,
         phone: location.phone,
         employees: location.employees,
-        animals: location.animals,
+        beasts: location.beasts,
         loadingStatus: false
       });
     });
@@ -48,9 +48,9 @@ class LocationDetail extends Component {
             ))}
           </ul>
           <ul>
-            Animals:
-            {this.state.animals.map(animal => (
-              <li key={animal.id}>{animal.name}</li>
+            Beasts:
+            {this.state.beasts.map(beast => (
+              <li key={beast.id}>{beast.name}</li>
             ))}
           </ul>
           <button
